@@ -1,0 +1,18 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - ComputeArea",
+      "request": "launch",
+      "mainClass": "ComputeArea",
+      "projectName": "HelloWorld_e366d1c0"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - MyClass",
+      "request": "launch",
+      "mainClass": "MyClass",
+      "projectName": "HelloWorld_e366d1c0"
+    }
+  ]
+}
