@@ -1,0 +1,16 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - Savings",
+      "request": "launch",
+      "mainClass": "Savings"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - population",
+      "request": "launch",
+      "mainClass": "population"
+    }
+  ]
+}
