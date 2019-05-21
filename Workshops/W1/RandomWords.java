@@ -6,12 +6,9 @@ import java.util.Random;
 import java.lang.Math;
 import java.util.Scanner;
 import java.util.ArrayList;;
-
 public class RandomWords {
-
   public static void main(String[] args) {
     String[] words = { "nondocumentary", "effectual", "notts", "ungored", "dare", "nonathletically", "quickstep","prominent", "triskele", "triradii", "nonaccommodating", "allopathically", "ddsc", "koala", "calenture","unconvoluted", "franglais", "floorcloth", "firbolg", "nonpliant", "saprozoic", "epigrammatized", "hoy","staminody", "dentilabial", "rebreed", "nonsacramental", "overattention", "cookless", "hodur", "concerned","nonwavering", "electroosmotic", "patroller", "offeror", "isagogically", "hauntingly", "critter", "inspectoral","unhumidifying", "phoenicia", "enucleating", "rosario", "earl", "corycia", "mindanao", "tranquilization","mphil", "tedious", "esteem" };
-
     boolean restart = true;
 
     while (restart) {
@@ -35,7 +32,7 @@ public class RandomWords {
         System.out.print("Enter a letter from [" + wordChar[0] + "]: ");
         Scanner sc = new Scanner(System.in);
         char letter = sc.next().charAt(0);
-        
+
         while (!Character.isLetter(letter)) {
           System.out.print("*WRONG TYPE*. Enter a LETTER from [" + wordChar[0] + "]: ");
           Scanner scan = new Scanner(System.in);
@@ -68,7 +65,7 @@ public class RandomWords {
           isFinished = true;
         }
       }
-      
+
       System.out.print("Would you like to play again? Y/N: ");
       Scanner play = new Scanner(System.in);
       char letter = play.next().charAt(0);
