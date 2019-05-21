@@ -1,4 +1,3 @@
-
 /**
  * RandomWords
  * A hangman game that randomly generates a word and prompts the user to guess one leter at a time
@@ -36,6 +35,7 @@ public class RandomWords {
         System.out.print("Enter a letter from [" + wordChar[0] + "]: ");
         Scanner sc = new Scanner(System.in);
         char letter = sc.next().charAt(0);
+        
         while (!Character.isLetter(letter)) {
           System.out.print("*WRONG TYPE*. Enter a LETTER from [" + wordChar[0] + "]: ");
           Scanner scan = new Scanner(System.in);
@@ -62,11 +62,13 @@ public class RandomWords {
         }
 
         System.out.println(wordChar);
+
         if (new String(wordChar).indexOf('*') == -1) {
           System.out.println("Misses: " + misses);
           isFinished = true;
         }
       }
+      
       System.out.print("Would you like to play again? Y/N: ");
       Scanner play = new Scanner(System.in);
       char letter = play.next().charAt(0);
