@@ -14,28 +14,48 @@ public class RandomWords {
     Random randomGenerator = new Random();
     int randomInt = randomGenerator.nextInt(words.length) + 1;
     String word = words[randomInt];
+    char[] wordCharLetters = word.toCharArray();
     
+    System.out.println("***** " + word.length() + " letter word *****");
+
     // Re-place all characters in the string with '*'
-    String asteriskString[] = {""};
+    char[] wordChar = word.toCharArray();
     for (int i = 0; i < word.length(); i++) {
-      asteriskString[i] = "*".toString();
+      wordChar[i] = '*';
     }
- 
-    boolean isFinished = false, correctLetter = false, letterExists = false;
+
+    boolean isFinished = false;
 
     while (!isFinished) {
 
-      // Prompt user to enter a letter
-      System.out.print("Enter a letter from [" + asteriskString.toString() + "]: ");
+      System.out.print("Enter a letter from [" + wordChar[0] + "]: ");
       Scanner sc = new Scanner(System.in);
       char letter = sc.next().charAt(0);
+      String triedLetters = "";
+      int misses = 0;
 
-      // Search chosen string for letter
-      int indexOfLetterChosen = word.indexOf(letter);
+      // triedLetters += Character.toString(letter);
 
-      // if letter entered is correct
-      if (indexOfLetterChosen != -1) {
-        asteriskString[indexOfLetterChosen] = letter;
+      // if (triedLetters.length() > 0) {
+      //   if (triedLetters.indexOf(letter) != -1) {
+      //     System.out.println("You've already used this letter: " + letter);
+      //   }
+      // }
+      
+      for (int i = 0; i < word.length(); i++) {
+        if (wordCharLetters[i] == letter) {
+          wordChar[i] = letter;
+        } else {
+          misses++;
+        }
+      }
+
+      System.out.println(wordChar);
+
+      // checks if the word is finished
+      if (new String(wordChar).indexOf('*') == -1) {
+        System.out.println("Misses: " + misses);
+        isFinished = true;
       }
     }
   }
