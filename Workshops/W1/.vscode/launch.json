@@ -4,7 +4,11 @@
       "type": "java",
       "name": "CodeLens (Launch) - RandomWords",
       "request": "launch",
-      "mainClass": "RandomWords"
+      "mainClass": "RandomWords",
+      "cwd": "${workspaceFolder}",
+      "console": "externalTerminal",
+      "stopOnEntry": false,
+      "preLaunchTask": "build"
     }
   ]
 }
