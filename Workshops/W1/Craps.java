@@ -13,13 +13,22 @@ public class Craps {
   public static void main(String[] args) {
     int prev = 0;
     boolean done = false;
+    int m_round = 0;
+
     do {
+      m_round++;
       m_dieOne = rollDie();
       m_dieTwo = rollDie();
       int sum = m_dieOne + m_dieTwo;
 
       System.out.println("You rolled " + m_dieOne + " + " + m_dieTwo + " = " + sum);
 
+      // If it's in round 1 and 7 is the result, the player loses and game stops
+      if (m_round != 1 && sum == 7) {
+        System.out.println("you lose.");
+        break;
+      }
+      
       boolean craps_check = false;
       boolean natural_check = false;
       boolean point_check = false;
@@ -47,10 +56,10 @@ public class Craps {
 
       done = sum == 7 || sum == prev;
       
-      if (sum == prev) {
+      if (sum == prev || (m_round == 1 && sum == 7)) {
         System.out.println("You win");
       }
-      else if (craps_check) {
+      else if (craps_check ) {
         System.out.println("you lose.");
       }
       else if (natural_check) {
@@ -59,7 +68,12 @@ public class Craps {
       else if (point_check ) {
         System.out.println("Point is " + sum);
       }
-
+      
+      if (m_round > 1 && sum == 7) {
+        System.out.println("You win");
+        break;
+      }
+      
       prev = sum;
     } while (!done);
     
