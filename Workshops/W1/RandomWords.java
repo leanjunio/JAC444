@@ -150,8 +150,10 @@ public class RandomWords {
     do {
       char letterInput = getUserLetterGuess();
       boolean match = checkForMatch(letterInput);
-      if (!match) 
+      if (!match) {
+        System.out.println("~~~ The letter " + letterInput + " is not in the word.");
         m_misses++;
+      }
       else
         System.out.println("***** The letter [" + letterInput + "] is in the word! *****");
 
