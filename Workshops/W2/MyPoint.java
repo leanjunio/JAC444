@@ -3,6 +3,8 @@
  * 
  * Represents a point with x and y coordinates
  */
+import java.lang.Math;
+
 public class MyPoint {
   private int x;
   private int y;
@@ -11,16 +13,8 @@ public class MyPoint {
     return this.x;
   }
 
-  public void setX(int x) {
-    this.x = x;
-  }
-
   public int getY() {
     return this.y;
-  }
-
-  public void setY(int y) {
-    this.y = y;
   }
 
   public MyPoint() {
@@ -33,7 +27,14 @@ public class MyPoint {
     this.y = y;
   }
 
-  public int distance(int x, int y) {
-    
+  /**
+   * Returns that distance between the object's current point and the specified point
+   * @return Distance from the current point to the specified point (x, y)
+   */
+  public double distance(int x, int y) {
+    double totalX = this.x - x;
+    double totalY = this.y - y;
+    double root = (totalX * totalX) + (totalY * totalY);
+    return Math.sqrt(root);
   }
 }
