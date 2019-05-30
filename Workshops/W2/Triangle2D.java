@@ -97,16 +97,22 @@ public class Triangle2D {
     Line2D.Double LinePA = new Line2D.Double(p.getX(), p.getY(), pA.getX(), pA.getY());
     Line2D.Double LinePB = new Line2D.Double(p.getX(), p.getY(), pB.getX(), pB.getY());
     Line2D.Double LinePC = new Line2D.Double(p.getX(), p.getY(), pC.getX(), pC.getY());
-  
+    
     boolean PAIntersects = LinePA.intersectsLine(lineAB) || LinePA.intersectsLine(lineBC) || LinePA.intersectsLine(lineCA);
     boolean PBIntersects = LinePB.intersectsLine(lineAB) || LinePB.intersectsLine(lineBC) || LinePB.intersectsLine(lineCA);
     boolean PCIntersects = LinePC.intersectsLine(lineAB) || LinePC.intersectsLine(lineBC) || LinePC.intersectsLine(lineCA);
 
+    // TODO: Check to see if there are at least two intersections, if there are at least two, that means that the point is outside
     return !(PAIntersects || PBIntersects || PCIntersects);
   }
 
   public boolean contains(Triangle2D t) {
-    
+    boolean containsP1 = this.contains(t.getP1());
+    boolean containsP2 = this.contains(t.getP2());
+    boolean containsP3 = this.contains(t.getP3());
+
+    boolean pointsContainedCurrentObject = containsP1 && containsP2 && containsP3;
+    return pointsContainedCurrentObject;
   }
 
   public boolean overlaps(Triangle2D t) {
