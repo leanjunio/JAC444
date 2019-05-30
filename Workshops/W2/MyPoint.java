@@ -6,14 +6,14 @@
 import java.lang.Math;
 
 public class MyPoint {
-  private int x;
-  private int y;
+  double x;
+  double y;
 
-  public int getX() {
+  public double getX() {
     return this.x;
   }
 
-  public int getY() {
+  public double getY() {
     return this.y;
   }
 
@@ -22,7 +22,7 @@ public class MyPoint {
     this.y = 0;
   }
 
-  public MyPoint(int x, int y) {
+  public MyPoint(double x, double y) {
     this.x = x;
     this.y = y;
   }
@@ -31,7 +31,7 @@ public class MyPoint {
    * Returns that distance between the object's current point and the specified point
    * @return Distance from the current point to the specified point (x, y)
    */
-  public double distance(int x, int y) {
+  public double distance(Double x, Double y) {
     double totalX = this.x - x;
     double totalY = this.y - y;
     double root = (totalX * totalX) + (totalY * totalY);
