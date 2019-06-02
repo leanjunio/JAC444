@@ -80,6 +80,8 @@ public class Triangle2D {
 
   /**
    * This function returns a boolean relative to whether a point is inside a triangle or not
+   * 
+   * The function creates line segments between the passed point(p) and each of the sides of the original triangle.
    * @param p The point to check
    * @return True or False
    */
@@ -116,6 +118,7 @@ public class Triangle2D {
   }
 
   public boolean overlaps(Triangle2D t) {
-
+    // TODO: Check if 
+    return this.contains(t);
   }
 }
