@@ -1,6 +1,7 @@
 /**
  * Complex
  * 
+ * The Complex number represented by this class only consists of 2 doubles (a and b), the i is added manually
  * Represents complex numbers which are combinations of real and imaginary numbers (a + bi). i = sqrt(-1)
  * Accompanying document: https://www.mathsisfun.com/numbers/complex-numbers.html
  */
@@ -36,21 +37,25 @@ public class Complex {
   }
 
   /**
-   * Adds the passed Complex number to the current object's Complex number
+   * Adds the passed Complex number to the current object's Complex number.
+   * Formula: (a+bi) + (c+di) = (a+c) + (b+d)i
+   * 
    * @param a - Complex number to add
    * @return total when a is added to the current object
    */
   public Complex add(Complex a) {
-    
+    return new Complex(this.getRealPart() + a.getRealPart(), this.getImaginaryPart() + a.getImaginaryPart());
   }
 
   /**
    * Subtract the passed Complex number from the current object's Complex number
+   * Formula: (a+bi) - (c+di) = (a-c) + (b-d)i
+
    * @param a - Complex number to subtract from current object' Complex Number.
    * @return the difference between the current object's complex number and the passed complex number a.
    */
   public Complex subtract(Complex a) {
-    
+    return new Complex(this.getRealPart() + a.getRealPart(), this.getImaginaryPart() + a.getImaginaryPart());
   }
 
   /**
@@ -73,4 +78,14 @@ public class Complex {
 
   // TODO: Add abs method for absolute numbers.
 
+  /**
+   * Getters
+   */
+  public double getRealPart() {
+    return this.m_real;
+  }
+  
+  public double getImaginaryPart() {
+    return this.m_imaginary;
+  }
 }
