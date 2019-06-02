@@ -55,7 +55,7 @@ public class Complex {
    * @return the difference between the current object's complex number and the passed complex number a.
    */
   public Complex subtract(Complex a) {
-    return new Complex(this.getRealPart() + a.getRealPart(), this.getImaginaryPart() + a.getImaginaryPart());
+    return new Complex(this.getRealPart() - a.getRealPart(), this.getImaginaryPart() - a.getImaginaryPart());
   }
 
   /**
