@@ -5,31 +5,34 @@
  * Accompanying document: https://www.mathsisfun.com/numbers/complex-numbers.html
  */
 public class Complex {
-  double m_real;
-  double m_imaginary;
+  final double m_real;
+  final double m_imaginary;
 
   /**
    * Creates a complex object a + bi
    * @param a - real component
    * @param b - imaginary component
    */
-  Complex(double a, double b) {
-
+  public Complex(double real, double imaginary) {
+    this.m_real = real;
+    this.m_imaginary = imaginary;
   }
   
   /**
    * Creates a Complex object a + 0
    * @param a - real component
    */
-  Complex(double a) {
-
+  public Complex(double real) {
+    this.m_real = real;
+    this.m_imaginary = 0;
   }
 
   /**
    * Creates a Complex object for 0
    */
-  Complex() {
-
+  public Complex() {
+    this.m_real = 0;
+    this.m_imaginary = 0;
   }
 
   /**
