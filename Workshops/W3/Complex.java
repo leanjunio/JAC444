@@ -60,11 +60,23 @@ public class Complex {
 
   /**
    * Multiples the current object's complex number with the passed complex number a.
+   * Formula:
+   *  - (a+bi)(c+di) = (ac−bd) + (ad+bc)i
+   *  - (a+bi)(c+di) = ac + adi + bci + bd(i^2)
    * @param a - Complex number to multiply to.
    * @return
    */
   public Complex multiply(Complex a) {
-    
+    // (ac - bd)
+    double realProduct = this.getRealPart() * a.getRealPart();
+    double imaginaryProduct = this.getImaginaryPart() * a.getImaginaryPart();
+    double differenceComplex = realProduct - imaginaryProduct;
+
+    // (ad + bc)
+    double RIProduct = this.getRealPart() * a.getImaginaryPart();
+    double IRProduct = this.getImaginaryPart() * a.getRealPart();
+    double sumComplex = RIProduct + IRProduct;
+    return new Complex(differenceComplex, sumComplex);
   }
 
   /**
