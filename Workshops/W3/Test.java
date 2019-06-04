@@ -22,5 +22,7 @@ public class Test {
     // Create the second complex number
     Complex second = new Complex(real, imaginary);
 
+    System.out.println(second.toString());
+
   }
 }

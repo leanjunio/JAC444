@@ -125,11 +125,10 @@ public class Complex {
    */
   @Override
   public String toString() {
-    String complexNumber;
     if (this.getImaginaryPart() == 0) {
-      return new String(this.getRealPart());
+      return String.valueOf(this.getRealPart());
     } else {
-      return new String(this.getRealPart() + " " + this.getImaginaryPart());
+      return new String(String.valueOf(this.getRealPart()) + " + " + String.valueOf(this.getImaginaryPart()) + "i");
     }
   }
 }
