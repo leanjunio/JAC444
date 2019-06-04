@@ -22,7 +22,10 @@ public class Test {
     // Create the second complex number
     Complex second = new Complex(real, imaginary);
 
-    System.out.println(second.toString());
-
+    // operations for complex numbers
+    System.out.println(first.toString() + " + " + second.toString() + " = " + first.add(second).toString());
+    System.out.println(first.toString() + " - " + second.toString() + " = " + first.subtract(second).toString());
+    System.out.println(first.toString() + " * " + second.toString() + " = " + first.multiply(second).toString());
+    System.out.println(first.toString() + " / " + second.toString() + " = " + first.divide(second).toString());
   }
 }
