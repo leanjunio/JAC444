@@ -119,4 +119,17 @@ public class Complex {
   public double getImaginaryPart() {
     return this.m_imaginary;
   }
+
+  /**
+   * Returns a string representation of an object
+   */
+  @Override
+  public String toString() {
+    String complexNumber;
+    if (this.getImaginaryPart() == 0) {
+      return new String(this.getRealPart());
+    } else {
+      return new String(this.getRealPart() + " " + this.getImaginaryPart());
+    }
+  }
 }
