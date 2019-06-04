@@ -107,7 +107,17 @@ public class Complex {
     return new Complex(leftQuotient, rightQuotient);
   }
 
-  // TODO: Add abs method for absolute numbers.
+  /**
+   * Returns the absolute value for a complex number
+   * 
+   * Formula: 
+   * - |a + bi| = sqrt(a^2 + b^2)
+   * @param a the complex number to get the absolute value of
+   * @return the absolute value for the complex number passed
+   */
+  public static Complex abs(Complex a) {
+    return new Complex(Math.sqrt((a.getRealPart() * a.getRealPart()) + (a.getImaginaryPart() * a.getImaginaryPart())));
+  }
 
   /**
    * Getters
