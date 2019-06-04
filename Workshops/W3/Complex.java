@@ -81,11 +81,30 @@ public class Complex {
 
   /**
    * Divides the current object's complex number with the passed complex number a.
+   * 
+   * Formula:
+   * - (a+bi)/(c+di) = (ac + bd)/(c^2 + d^2) + (bc - ad)i/(c^2 + d^2)
    * @param a - CN to divide to
    * @return quotient
    */
   public Complex divide(Complex a) {
+    // (ac + bd)
+    double acProduct = this.getRealPart() * a.getRealPart();
+    double bdProduct=  this.getImaginaryPart() * a.getImaginaryPart();
+
+    double left = acProduct + bdProduct;
+
+    // (c^2 + d^2) NOTE: Same as on the right side
+    double denom = (a.getRealPart() * a.getRealPart()) + (a.getImaginaryPart() * a.getImaginaryPart());
+
+    // (ac + bd)/(c^2 + d^2)
+    double leftQuotient = left/denom;
+
+    // (bc - ad)i
+    double rightImaginary = (this.getImaginaryPart() * a.getRealPart()) - (this.getRealPart() * a.getImaginaryPart());
+    double rightQuotient = rightImaginary/denom;
     
+    return new Complex(leftQuotient, rightQuotient);
   }
 
   // TODO: Add abs method for absolute numbers.
