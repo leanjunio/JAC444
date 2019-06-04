@@ -19,7 +19,8 @@ public class Test {
     real = sc.nextDouble();
     imaginary = sc.nextDouble();
 
-    // Create the first complex number
+    // Create the second complex number
     Complex second = new Complex(real, imaginary);
+
   }
 }
