@@ -128,7 +128,7 @@ public class Complex {
     if (this.getImaginaryPart() == 0) {
       return String.valueOf(this.getRealPart());
     } else {
-      return new String(String.valueOf(this.getRealPart()) + " + " + String.valueOf(this.getImaginaryPart()) + "i");
+      return new String("(" + String.valueOf(this.getRealPart()) + " + " + String.valueOf(this.getImaginaryPart()) + "i)");
     }
   }
 }
