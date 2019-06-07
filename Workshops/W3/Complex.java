@@ -153,7 +153,7 @@ public class Complex implements Cloneable {
     } catch (NumberFormatException e) {
       System.err.println("ERROR: Please make sure that you're only entering numbers");
       return false;
-    } catch (NoSuchElementException e) {
+    } catch (NoSuchElementException e) {  // for 0 amount of tokens
       System.err.println("ERROR: You entered an incorrect amount of numbers, make sure that you're entering 2 numbers.");
     }
 
@@ -161,6 +161,9 @@ public class Complex implements Cloneable {
     
     // if one of them is false...return false
     if (invalidTokenCount || invalidTypes || invalidValueReal) {
+      if (invalidTokenCount) {
+        System.err.println("ERROR: You entered an incorrect amount of numbers, make sure that you're entering 2 numbers.");
+      }
       if (invalidValueReal) {
         System.err.println("ERROR: The 'real' component of your complex number is 0. Enter a number that is not 0.");
       }
