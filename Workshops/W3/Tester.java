@@ -1,4 +1,3 @@
-
 /**
  * Tester
  */
@@ -44,6 +43,7 @@ public class Tester {
 
     // calls the calculate function which runs the proper operations in their proper order
     calculate(first, second);
+    sc.close();
   }
   
   /**

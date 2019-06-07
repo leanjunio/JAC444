@@ -183,5 +183,4 @@ public class Complex implements Cloneable {
       return new String("(" + String.valueOf(this.getRealPart()) + " + " + String.valueOf(this.getImaginaryPart()) + "i)");
     }
   }
-
 }
