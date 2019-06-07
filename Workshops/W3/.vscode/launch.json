@@ -6,13 +6,11 @@
   "configurations": [
     {
       "type": "java",
-      "name": "Debug (Launch)-Test",
+      "name": "Debug (Launch) - Current File",
       "request": "launch",
-      "mainClass": "Test",
-      "cwd": "${workspaceFolder}",
-      "console": "externalTerminal",
-      "stopOnEntry": false,
-      "preLaunchTask": "build"
+      "mainClass": "Tester",
+      "preLaunchTask": "build",
+      "console": "externalTerminal"
     }
   ]
 }

@@ -1,23 +1,30 @@
+
 /**
- * Test
+ * Tester
  */
 import java.util.Scanner;
-public class Test {
+public class Tester {
 
   public static void main(String[] args) {
-    System.out.print("Enter the first complex number: ");
-
+    
+    boolean validInput = false;
+    double real = 0, imaginary = 0;
+    
     Scanner sc = new Scanner(System.in);
-
-    double real = sc.nextDouble();
-    double imaginary = sc.nextDouble();
+    
+    do {
+      System.out.print("Enter the first complex number: ");
+      String line = sc.nextLine();
+      validInput = Complex.validComplex(line);
+    } while (!validInput);
 
     Complex first = new Complex(real, imaginary);
 
-    System.out.print("Enter the second complex number: ");
-
-    real = sc.nextDouble();
-    imaginary = sc.nextDouble();
+    do {
+      System.out.print("Enter the second complex number: ");
+      String line = sc.nextLine();
+      validInput = Complex.validComplex(line);
+    } while (!validInput);
 
     // Create the second complex number
     Complex second = new Complex(real, imaginary);

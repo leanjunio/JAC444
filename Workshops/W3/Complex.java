@@ -5,7 +5,10 @@
  * Represents complex numbers which are combinations of real and imaginary numbers (a + bi). i = sqrt(-1)
  * Accompanying document: https://www.mathsisfun.com/numbers/complex-numbers.html
  */
-public class Complex {
+import java.util.StringTokenizer;
+import java.util.NoSuchElementException;
+
+public class Complex implements Cloneable {
   final double m_real;
   final double m_imaginary;
 
@@ -131,6 +134,42 @@ public class Complex {
   }
 
   /**
+   * Checks whether the ComplexNumber that was passed is valid
+   */
+  public static boolean validComplex(String userInput) {
+    StringTokenizer s = new StringTokenizer(userInput);
+
+    double real = 0, imaginary = 0;
+
+    // check for the count
+    boolean invalidTokenCount = (s.countTokens() != 2) ? true : false;
+    boolean invalidTypes = false;
+    boolean invalidValueReal = false;
+    // check for valid double
+    // first: convert the tokens to double
+    try {
+      real = Double.parseDouble(s.nextToken());
+      imaginary = Double.parseDouble(s.nextToken());
+    } catch (NumberFormatException e) {
+      System.err.println("ERROR: Please make sure that you're only entering numbers");
+      return false;
+    } catch (NoSuchElementException e) {
+      System.err.println("ERROR: You entered an incorrect amount of numbers, make sure that you're entering 2 numbers.");
+    }
+
+    invalidValueReal = real == 0;
+    
+    // if one of them is false...return false
+    if (invalidTokenCount || invalidTypes || invalidValueReal) {
+      if (invalidValueReal) {
+        System.err.println("ERROR: The 'real' component of your complex number is 0. Enter a number that is not 0.");
+      }
+      return false;
+    } else {
+      return true;
+    }
+  }
+  /**
    * Returns a string representation of an object
    */
   @Override
@@ -141,4 +180,5 @@ public class Complex {
       return new String("(" + String.valueOf(this.getRealPart()) + " + " + String.valueOf(this.getImaginaryPart()) + "i)");
     }
   }
+
 }
