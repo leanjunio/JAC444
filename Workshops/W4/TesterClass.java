@@ -6,7 +6,6 @@ import java.util.Scanner;
  * TesterClass
  */
 public class TesterClass {
-
   public static void main(String[] args) {
     runFile();
   }
@@ -33,6 +32,9 @@ public class TesterClass {
     return count;
   } 
 
+  /**
+   * The method that runs Task 1
+   */
   public static void runFile() {
     char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
     
