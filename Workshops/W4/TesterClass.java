@@ -8,7 +8,32 @@ import java.util.Scanner;
 public class TesterClass {
 
   public static void main(String[] args) {
-    
+    runFile();
+  }
+
+  /**
+   * Checks how many times a letter exists in a file
+   * @param letter - the letter to check against
+   * @param file - the file that needs to be checked
+   * @return the amount of times the letter exists in the file
+   */
+  public static int checkForLetter(char letter, String file) {
+    int ch, count = 0;
+    try {
+      FileReader fr = new FileReader(file);
+      while ((ch = fr.read()) != -1) {
+        if ((char)ch == letter) {
+          count++;
+        }
+      }
+      fr.close();
+    } catch (Exception e) {
+      System.err.println(e.getCause());
+    }
+    return count;
+  } 
+
+  public static void runFile() {
     char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
     
     Scanner sc = new Scanner(System.in);
@@ -33,26 +58,4 @@ public class TesterClass {
       System.out.println("Number of " + l + " : " + n);
     }
   }
-
-  /**
-   * Checks how many times a letter exists in a file
-   * @param letter - the letter to check against
-   * @param file - the file that needs to be checked
-   * @return the amount of times the letter exists in the file
-   */
-  public static int checkForLetter(char letter, String file) {
-    int ch, count = 0;
-    try {
-      FileReader fr = new FileReader(file);
-      while ((ch = fr.read()) != -1) {
-        if ((char)ch == letter) {
-          count++;
-        }
-      }
-      fr.close();
-    } catch (Exception e) {
-      System.err.println(e.getCause());
-    }
-    return count;
-  } 
 }
