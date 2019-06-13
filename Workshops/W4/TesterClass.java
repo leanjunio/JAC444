@@ -7,7 +7,8 @@ import java.util.Scanner;
  */
 public class TesterClass {
   public static void main(String[] args) {
-    runFile();
+    // runFile();
+    runNumbers();
   }
 
   /**
@@ -31,6 +32,28 @@ public class TesterClass {
     }
     return count;
   } 
+
+  public static void runNumbers() {
+    String numbers = null;
+    boolean validNumbers = false;
+    Scanner sc = new Scanner(System.in);
+
+    do {
+      System.out.print("Enter 7 digits: ");
+      try {
+        numbers = sc.nextLine();
+        if (numbers.matches("[0-9]+") && numbers.length() == 7) {
+          validNumbers = true;
+        } else {
+          System.out.println("You entered 1 or more letters. Try again and only enter 7 numbers.");
+          validNumbers = false;
+        }
+      } catch (Exception e) {
+        System.err.println(e.getLocalizedMessage());
+      }
+      System.out.println("Generating possible 7 letter word combinations...");
+    } while (!validNumbers);
+  }
 
   /**
    * The method that runs Task 1
@@ -59,5 +82,7 @@ public class TesterClass {
       int n = checkForLetter(l, file);
       System.out.println("Number of " + l + " : " + n);
     }
+
+    sc.close();
   }
 }
