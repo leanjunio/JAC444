@@ -1,14 +1,16 @@
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
  * TesterClass
  */
 public class TesterClass {
-  public static void main(String[] args) {
-    // runFile();
-    runNumbers();
+  public static void main(String[] args) throws NumberRestrictionException {
+    System.out.println("NOTE: Please comment and uncomment between the two functions below. In file TesterClass.java Line 12 and Line 13");
+    runFile();      // task 1
+    runNumbers();   // task 2
   }
 
   /**
@@ -33,28 +35,43 @@ public class TesterClass {
     return count;
   } 
 
-  public static void runNumbers() {
-    String numbers = null;
+  public static void runNumbers() throws NumberRestrictionException {
+    int numbers = 0;
     boolean validNumbers = false;
     Scanner sc = new Scanner(System.in);
 
     do {
       System.out.print("Enter 7 digits: ");
       try {
-        numbers = sc.nextLine();
-        if (numbers.matches("[2-9]+") && numbers.length() == 7) {
+        numbers = Integer.parseInt(sc.nextLine());
+
+        boolean numberRestriction = Integer.toString(numbers).matches("[2-9]+");
+        boolean minimumSevenDigits = Integer.toString(numbers).length() == 7;
+
+        if (numberRestriction && minimumSevenDigits) {
           validNumbers = true;
+        } else if(!numberRestriction) {
+          NumberRestrictionException nre = new NumberRestrictionException("You entered a number outside of the boundaries (2 - 9). Try again.");
+          throw nre;
+        } else if(!minimumSevenDigits) {
+          NumberLengthException nle = new NumberLengthException("You didn't reach the correct length. The length must be 7. Try again.");
+          throw nle;
         }
-      } catch (Exception e) {
+      } catch (InputMismatchException e) {
+        System.err.println("ERR: The token retrieved does not match the pattern for the expected type, or that the token is out of range for the expected type.");
+      } catch (NumberRestrictionException e) {
+        System.out.println(e.getLocalizedMessage());
+      } catch (NumberFormatException e) {
+        System.err.println("ERR: The application has attempted to convert a string to one of the numeric types, but that the string does not have the appropriate format.");
+      } catch (NumberLengthException e) {
         System.err.println(e.getLocalizedMessage());
-      } finally {
-        System.out.println("Generating possible 7 letter word combinations...");
-
-        Permutations p = new Permutations(numbers);
-        p.print();
-
       }
     } while (!validNumbers);
+
+    System.out.println("Generating possible 7 letter word combinations...");
+
+    Permutations p = new Permutations(Integer.toString(numbers));
+    p.print();
   }
 
   /**
@@ -72,6 +89,7 @@ public class TesterClass {
     do {
       System.out.print("Enter a filename: ");
       file = sc.nextLine();
+      sc.reset();
       try {
         fr = new FileReader(file);
         validFile = true;

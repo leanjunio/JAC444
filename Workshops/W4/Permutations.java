@@ -53,7 +53,7 @@ public class Permutations {
   /**
    * Prints the permutations that are generated one by one
    */
-  public void print() {
+  public void print() { 
     FileWriter fw;
 
     try {
