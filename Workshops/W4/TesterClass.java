@@ -42,16 +42,18 @@ public class TesterClass {
       System.out.print("Enter 7 digits: ");
       try {
         numbers = sc.nextLine();
-        if (numbers.matches("[0-9]+") && numbers.length() == 7) {
+        if (numbers.matches("[2-9]+") && numbers.length() == 7) {
           validNumbers = true;
-        } else {
-          System.out.println("You entered 1 or more letters. Try again and only enter 7 numbers.");
-          validNumbers = false;
         }
       } catch (Exception e) {
         System.err.println(e.getLocalizedMessage());
+      } finally {
+        System.out.println("Generating possible 7 letter word combinations...");
+
+        Permutations p = new Permutations(numbers);
+        p.print();
+
       }
-      System.out.println("Generating possible 7 letter word combinations...");
     } while (!validNumbers);
   }
 
@@ -82,7 +84,6 @@ public class TesterClass {
       int n = checkForLetter(l, file);
       System.out.println("Number of " + l + " : " + n);
     }
-
     sc.close();
   }
 }
