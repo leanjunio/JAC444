@@ -1,14 +1,9 @@
 package app;
 
-import java.util.Arrays;
-import java.util.Collections;
-
 import javafx.application.Application;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
