@@ -27,23 +27,34 @@ import javafx.stage.Stage;
     // }
 
     public static void main(String[] args) {
-
         try {
             // Creates 10 objects of Accounts and initialize them to 100 balance
             Account accounts[] = new Account[10];
-
-            FileOutputStream file = new FileOutputStream("account.dat");
-            ObjectOutputStream out = new ObjectOutputStream(file);
-            
+            App object = new App();
+        
             for (Account a : accounts) {
                 a = new Account(0, 100.00);
-                
+                object.WriteObjectToFile(a);
+                System.out.println(a.toString());
             }
-            out.close();
         } catch (Exception e) {
-            //TODO: handle exception
+            System.err.println(e.getLocalizedMessage());
         }
         // launch();
+    }
+
+    public void WriteObjectToFile(Object serObj) {
+ 
+        try {
+            FileOutputStream fileOut = new FileOutputStream("account.dat");
+            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+            objectOut.writeObject(serObj);
+            objectOut.close();
+            System.out.println("The Object  was succesfully written to a file");
+ 
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
 }

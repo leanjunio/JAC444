@@ -110,4 +110,13 @@ public class Account implements Serializable {
   public void deposit(double amount) {
     this.setBalance(this.getBalance() + amount);
   }
+
+  @Override
+  public String toString() {
+    return new StringBuffer(" First Name: ").append(this.firstName)
+      .append(" Last Name: ").append(this.lastName)
+      .append(" Balance: ").append(this.balance)
+      .append(" Annual Interest Rate: ").append(this.getAnnualInterestRate()).toString();
+    // return "First Name: " + this.firstName + "\nLast Name: " + this.lastName + "\nBalance: " + this.getBalance() + "\nAnnual Interest Rate: " + this.getAnnualInterestRate() + "\nDate Created: " + this.getDateCreated();
+  }
 }
