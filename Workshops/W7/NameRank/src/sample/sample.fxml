@@ -7,14 +7,14 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <Button id="submitButton" layoutX="96.0" layoutY="297.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="134.0" text="Submit Query" />
-      <Button id="exitButton" layoutX="410.0" layoutY="297.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="91.0" text="Exit" />
+      <Button fx:id="submitButton" layoutX="96.0" layoutY="297.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="134.0" text="Submit Query" onAction="#handleSubmitButtonAction" />
+      <Button fx:id="exitButton" layoutX="410.0" layoutY="297.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="91.0" text="Exit" />
       <Label layoutX="94.0" layoutY="82.0" text="Enter the Year:" />
       <Label layoutX="96.0" layoutY="125.0" text="Enter the Gender:" />
       <Label layoutX="101.0" layoutY="165.0" text="Enter the Name:" />
-      <TextField id="yearField" layoutX="230.0" layoutY="77.0" />
-      <TextField id="genderField" layoutX="230.0" layoutY="120.0" prefHeight="26.0" prefWidth="31.0" />
-      <TextField id="nameField" layoutX="230.0" layoutY="160.0" />
+      <TextField fx:id="yearField" layoutX="230.0" layoutY="77.0"/>
+      <TextField fx:id="genderField" layoutX="230.0" layoutY="120.0" prefHeight="26.0" prefWidth="31.0"/>
+      <TextField fx:id="nameField" layoutX="230.0" layoutY="160.0" />
       <Label layoutX="96.0" layoutY="229.0" text="Label" />
    </children>
 </AnchorPane>

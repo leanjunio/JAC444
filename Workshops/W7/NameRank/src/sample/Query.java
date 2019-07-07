@@ -13,6 +13,45 @@ public class Query {
         this.rank = rank;
     }
 
+    Query(Query query) {
+        this.year = query.year;
+        this.gender = query.gender;
+        this.name = query.name;
+        this.rank = query.rank;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public char getGender() {
+        return gender;
+    }
+
+    public void setGender(char gender) {
+        this.gender = gender;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getRank() {
+        return rank;
+    }
+
+    public void setRank(int rank) {
+        this.rank = rank;
+    }
+
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer(Character.toString(this.gender));
