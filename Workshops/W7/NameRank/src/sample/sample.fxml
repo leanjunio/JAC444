@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Button layoutX="96.0" layoutY="297.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="134.0" text="Submit Query" />
+      <Button layoutX="410.0" layoutY="297.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="91.0" text="Exit" />
+      <Label layoutX="94.0" layoutY="82.0" text="Enter the Year:" />
+      <Label layoutX="96.0" layoutY="125.0" text="Enter the Gender:" />
+      <Label layoutX="101.0" layoutY="165.0" text="Enter the Name:" />
+      <TextField layoutX="230.0" layoutY="77.0" />
+      <TextField layoutX="230.0" layoutY="120.0" prefHeight="26.0" prefWidth="31.0" />
+      <TextField layoutX="230.0" layoutY="160.0" />
+      <Label layoutX="96.0" layoutY="229.0" text="Label" />
+   </children>
+</AnchorPane>
