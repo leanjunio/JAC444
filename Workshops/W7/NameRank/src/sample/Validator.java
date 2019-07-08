@@ -23,17 +23,19 @@ public class Validator {
     }
 
     public boolean nameIsValid() {
+        System.out.println("Name Entered: " + this.name);
         boolean isGreaterThanOneCharacter = this.name.length() > 0;
         boolean isAlphaNumeric = containsNumbers(this.name);
         boolean nameIsValid = isGreaterThanOneCharacter && !isAlphaNumeric;
 
         if (!isGreaterThanOneCharacter || isAlphaNumeric) {
-
+            throw new IllegalArgumentException("The name should only contain letters and should be more than 1 character.");
         }
         return nameIsValid;
     }
 
     public boolean yearIsValid() {
+        System.out.println("Year Entered: " + this.year);
         int year = Integer.parseInt(this.year);
         boolean isBetweenRange = year >= 2001 && year <= 2010;
         if (!isBetweenRange) {
@@ -43,19 +45,16 @@ public class Validator {
     }
 
     public boolean genderIsValid() {
-//        try {
-//            System.out.println(this.gender.length());
-//            genderEntered = Character.toLowerCase(this.gender.charAt(0));
-//        } catch(StringIndexOutOfBoundsException s) {
-//            System.out.println(s.getMessage());
-//        }
         System.out.println("Gender Entered: " + this.gender);
         String gender = this.gender.toLowerCase();
         boolean isOneCharacter = gender.length() == 1;
         boolean isValidOptions = gender.equals("m") || gender.equals("f");
         boolean isValidInput = isValidOptions && isOneCharacter;
+        if (this.gender.length() == 0) {
+            throw new IllegalArgumentException("Your Gender field is empty.");
+        }
         if (!isValidInput) {
-            throw new IllegalArgumentException("You entered a character of invalid choice. Only M/F is allowed.");
+            throw new IllegalArgumentException("You entered an invalid input for Gender.\nMake sure that your gender is only a single character and should either only be M or F.");
         }
         return isValidInput;
     }
