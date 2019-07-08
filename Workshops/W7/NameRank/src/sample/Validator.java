@@ -43,9 +43,16 @@ public class Validator {
     }
 
     public boolean genderIsValid() {
-        char genderEntered = Character.toLowerCase(this.gender.charAt(0));
-        boolean isOneCharacter = this.gender.length() == 1;
-        boolean isValidOptions = genderEntered == 'm' || genderEntered == 'f';
+//        try {
+//            System.out.println(this.gender.length());
+//            genderEntered = Character.toLowerCase(this.gender.charAt(0));
+//        } catch(StringIndexOutOfBoundsException s) {
+//            System.out.println(s.getMessage());
+//        }
+        System.out.println("Gender Entered: " + this.gender);
+        String gender = this.gender.toLowerCase();
+        boolean isOneCharacter = gender.length() == 1;
+        boolean isValidOptions = gender.equals("m") || gender.equals("f");
         boolean isValidInput = isValidOptions && isOneCharacter;
         if (!isValidInput) {
             throw new IllegalArgumentException("You entered a character of invalid choice. Only M/F is allowed.");
