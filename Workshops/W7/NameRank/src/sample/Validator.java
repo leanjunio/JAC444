@@ -15,9 +15,9 @@ public class Validator {
     }
 
     public boolean isValid() {
-        boolean nameValid = nameIsValid();
-        boolean genderValid = genderIsValid();
         boolean yearValid = yearIsValid();
+        boolean genderValid = genderIsValid();
+        boolean nameValid = nameIsValid();
 
         return nameValid && genderValid && yearValid;
     }
@@ -29,7 +29,7 @@ public class Validator {
         boolean nameIsValid = isGreaterThanOneCharacter && !isAlphaNumeric;
 
         if (!isGreaterThanOneCharacter || isAlphaNumeric) {
-            throw new IllegalArgumentException("The name should only contain letters and should be more than 1 character.");
+            throw new IllegalArgumentException("The name should only contain letters and should be at least 2 characters.");
         }
         return nameIsValid;
     }
@@ -38,6 +38,7 @@ public class Validator {
         System.out.println("Year Entered: " + this.year);
         int year = Integer.parseInt(this.year);
         boolean isBetweenRange = year >= 2001 && year <= 2010;
+        boolean isGreaterThanFourDIgits = year > 9999;
         if (!isBetweenRange) {
             throw new IllegalArgumentException("The year has to be between 2001 and 2010. You entered: " + year);
         }
