@@ -62,7 +62,7 @@ public class Controller {
         }
     }
 
-    public void lookup(Query q) throws IOException {
+    private void lookup(Query q) throws IOException {
         String fileName = "src/babynamesranking" + q.getYear() + ".txt";
         try {
             readFile(q, fileName);
@@ -71,32 +71,30 @@ public class Controller {
         }
     }
 
-    public void readFile(Query q, String filename) throws IOException  {
+    private void readFile(Query q, String filename) throws IOException  {
         try {
             int i = 0;
             boolean found = false;
             File file = new File(filename);
             BufferedReader br = new BufferedReader(new FileReader(file));
             String line = "";
-            while ((line = br.readLine()) != null && found == false) {
+            while ((line = br.readLine()) != null && !found) {
                 i++;
-                lineProcessor(line, q);
+                found = lineProcessor(line, q);
             }
             showResult(q);
         } catch (IOException i) {
             i.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
-    public void showResult(Query q) {
+    private void showResult(Query q) {
         System.out.println(q.toString());
         messageLabel.setText(q.toString());
         messageLabel.setVisible(true);
     }
 
-    public boolean lineProcessor(String s, Query q) {
+    private boolean lineProcessor(String s, Query q) {
         boolean nameFound = false;
         String str[] = s.split("\\s+");
 
@@ -121,7 +119,7 @@ public class Controller {
         return nameFound;
     }
 
-    public void alertHandler(String s) {
+    private void alertHandler(String s) {
         Alert a = new Alert(Alert.AlertType.ERROR);
         a.getDialogPane().setMinWidth(550);
         a.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
