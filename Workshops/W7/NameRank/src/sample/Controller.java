@@ -1,21 +1,23 @@
 package sample;
 
-import javafx.beans.Observable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
+import javafx.stage.Stage;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Scanner;
 
 public class Controller {
+    @FXML
+    private AnchorPane ap;
     @FXML
     private TextField yearField;
     @FXML
@@ -62,6 +64,10 @@ public class Controller {
         }
     }
 
+    public  void handleExitButtonAction() {
+        Stage stage = (Stage)ap.getScene().getWindow();
+        stage.close();
+    }
     private void lookup(Query q) throws IOException {
         String fileName = "src/babynamesranking" + q.getYear() + ".txt";
         try {
