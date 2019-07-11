@@ -8,6 +8,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.Scanner;
+
 public class Controller {
     @FXML
     private TextField yearField;
@@ -24,10 +29,12 @@ public class Controller {
     protected void handleSubmitButtonAction(ActionEvent event) {
         Validator v = null;
         boolean validFields = false;
+
+        String year ="", gender="", name="";
         try {
-            String year = yearField.getText();
-            String gender = genderField.getText();
-            String name = nameField.getText();
+            year = yearField.getText();
+            gender = genderField.getText();
+            name = nameField.getText();
             v = new Validator(year, gender, name);
             validFields = v.isValid();
         } catch(NullPointerException e) {
@@ -44,9 +51,22 @@ public class Controller {
         System.out.println("Reached!");
         if (validFields) {
             System.out.println("Fields are all valid");
+            Query q = new Query(Integer.parseInt(year), gender.charAt(0), name, 0);
+            lookup(q);
         } else {
             System.out.println("The Fields are not valid!");
         }
+    }
+
+    public void lookup(Query q) {
+        StringBuilder fileName = new StringBuilder("babynamesranking").append(q.getYear()).append(".txt");
+
+
+
+    }
+
+    public void readFile(Query q, FileReader file) {
+        Scanner sc = new Scanner(file);
     }
 
     public void alertHandler(String s) {
