@@ -58,7 +58,7 @@ public class Query {
         final StringBuffer sb = new StringBuffer(gender);
         sb.append(" name ").append(this.name);
         sb.append(" is ranked #").append(this.rank);
-        sb.append(" in ").append(this.year).append(" year");
+        sb.append(" in ").append(" year").append(this.year);
         return sb.toString();
     }
 }
