@@ -11,6 +11,7 @@ import javafx.scene.layout.Region;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Controller {
@@ -26,7 +27,7 @@ public class Controller {
     private Button exitButton;
 
     @FXML
-    protected void handleSubmitButtonAction(ActionEvent event) {
+    protected void handleSubmitButtonAction(ActionEvent event) throws IOException {
         Validator v = null;
         boolean validFields = false;
 
@@ -58,15 +59,26 @@ public class Controller {
         }
     }
 
-    public void lookup(Query q) {
-        StringBuilder fileName = new StringBuilder("babynamesranking").append(q.getYear()).append(".txt");
-
-
-
+    public void lookup(Query q) throws IOException {
+        String fileName = "src/babynamesranking" + q.getYear() + ".txt";
+        try {
+            readFile(q, fileName);
+        } catch(IOException i) {
+            i.printStackTrace();
+        }
     }
 
-    public void readFile(Query q, FileReader file) {
-        Scanner sc = new Scanner(file);
+    public void readFile(Query q, String filename) throws IOException  {
+        try {
+            File file = new File(filename);
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line = "";
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException i) {
+            i.printStackTrace();
+        }
     }
 
     public void alertHandler(String s) {
@@ -75,15 +87,6 @@ public class Controller {
         a.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
         a.setContentText(s);
         a.showAndWait();
-    }
-
-    public static boolean isNumeric(String s) {
-        try {
-            Integer.parseInt(s);
-            return true;
-        } catch(NumberFormatException e) {
-            return false;
-        }
     }
 
     public void initialize() {
