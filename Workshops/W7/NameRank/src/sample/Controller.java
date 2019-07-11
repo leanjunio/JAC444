@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 
@@ -25,6 +26,8 @@ public class Controller {
     private Button submitButton;
     @FXML
     private Button exitButton;
+    @FXML
+    private Label messageLabel;
 
     @FXML
     protected void handleSubmitButtonAction(ActionEvent event) throws IOException {
@@ -79,13 +82,18 @@ public class Controller {
                 i++;
                 lineProcessor(line, q);
             }
-
-            System.out.println(q.toString());
+            showResult(q);
         } catch (IOException i) {
             i.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void showResult(Query q) {
+        System.out.println(q.toString());
+        messageLabel.setText(q.toString());
+        messageLabel.setVisible(true);
     }
 
     public boolean lineProcessor(String s, Query q) {
