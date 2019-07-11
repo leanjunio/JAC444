@@ -54,7 +54,8 @@ public class Query {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer(Character.toString(this.gender));
+        String gender = (this.gender == 'M') ? "Boy" : "Girl";
+        final StringBuffer sb = new StringBuffer(gender);
         sb.append(" name ").append(this.name);
         sb.append(" is ranked #").append(this.rank);
         sb.append(" in ").append(this.year).append(" year");

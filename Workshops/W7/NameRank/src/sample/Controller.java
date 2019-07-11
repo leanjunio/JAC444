@@ -70,15 +70,47 @@ public class Controller {
 
     public void readFile(Query q, String filename) throws IOException  {
         try {
+            int i = 0;
+            boolean found = false;
             File file = new File(filename);
             BufferedReader br = new BufferedReader(new FileReader(file));
             String line = "";
-            while ((line = br.readLine()) != null) {
-                System.out.println(line);
+            while ((line = br.readLine()) != null && found == false) {
+                i++;
+                lineProcessor(line, q);
             }
+
+            System.out.println(q.toString());
         } catch (IOException i) {
             i.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+    }
+
+    public boolean lineProcessor(String s, Query q) {
+        boolean nameFound = false;
+        String str[] = s.split("\\s+");
+
+        int r = 0;
+
+        String rank = str[0];
+        String mName = str[1];
+        String mNum = str[2];
+        String fName = str[3];
+        String fNum = str[4];
+
+        String name = (q.getGender() == 'M') ? mName : fName;
+
+        if (q.getName().equals(name)) {
+            q.setRank(Integer.parseInt(rank));
+        }
+
+        if (q.getRank() != 0) {
+            nameFound = true;
+        }
+
+        return nameFound;
     }
 
     public void alertHandler(String s) {
@@ -90,13 +122,6 @@ public class Controller {
     }
 
     public void initialize() {
-//        genderField.textProperty().addListener((observableValue, s, t1) -> {
-//            if (t1.matches("[mfMF]")) {
-//                genderField.setText(t1);
-//            } else {
-//                genderField.setText(s);
-//            }
-//        });
     }
 }
 
