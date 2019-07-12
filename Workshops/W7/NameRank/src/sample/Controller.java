@@ -95,9 +95,13 @@ public class Controller {
     }
 
     private void showResult(Query q) {
-        System.out.println(q.toString());
-        messageLabel.setText(q.toString());
-        messageLabel.setVisible(true);
+        if (q.getRank() != 0) {
+            System.out.println(q.toString());
+            messageLabel.setText(q.toString());
+            messageLabel.setVisible(true);
+        } else {
+            alertHandler("The name " + q.getName() + " is not found in any of the files.");
+        }
     }
 
     private boolean lineProcessor(String s, Query q) {
