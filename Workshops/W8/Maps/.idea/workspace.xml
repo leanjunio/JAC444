@@ -6,9 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dad35e45-8784-448b-b3cf-3423b58e7bef" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Quiz/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Quiz/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="dad35e45-8784-448b-b3cf-3423b58e7bef" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -117,8 +115,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -171,8 +169,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="2" width="1932" height="1055" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.258547" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26121795" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
